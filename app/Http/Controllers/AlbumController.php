@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Http\UploadedFile;
 use App\Profile;
 use App\Image;
 use App\Album;
@@ -99,6 +101,10 @@ class AlbumController extends SocialNetworkController
 
                 $img_uri = time().'.'.$request->file->getClientOriginalExtension();
                 $request->file('file')->move(public_path('assets/images/album'), $img_uri);
+                
+                /* $uri = Storage::disk('public')->put('images/album', $request->file('file'));
+                $uri_split = explode("/", $uri);
+                $img_uri = end($uri_split); */
 
                 $image = Image::insert([
                     'name' => $img_uri,

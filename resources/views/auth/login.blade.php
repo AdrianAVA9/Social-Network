@@ -12,7 +12,7 @@
                         @csrf
                         <div class="form-group row mb-4">
                             <div class="col-md-12">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror app-input-style-1" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus placeholder="Correo electrónico">
+                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror app-input-style-1" name="email" value="adrian.vega@live.com" required autocomplete="email" autofocus placeholder="Correo electrónico">
 
                                 @error('email')
                                     <span class="invalid-feedback" role="alert">
@@ -24,7 +24,7 @@
 
                         <div class="form-group row">
                             <div class="col-md-12">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror app-input-style-1" name="password" required autocomplete="current-password" placeholder="Contraseña">
+                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror app-input-style-1" value="123" name="password" required autocomplete="current-password" placeholder="Contraseña">
 
                                 @error('password')
                                     <span class="invalid-feedback" role="alert">

@@ -46,11 +46,11 @@
             }
 
             .title {
-                font-size: 70px;
                 color: #FFFFFF;
             }
 
             .title > h1{
+                font-size: 90px;
                 margin-bottom:0;
             }
 
@@ -75,7 +75,12 @@
                 font-size: 16px;
                 text-decoration: none;
             }
-            
+            .btn-register:hover{
+                color:#FFF;
+                background-color:#0E0B16;
+                border-color:#0E0B16;
+                text-decoration: none;
+            }
             .links > a {
                 color: #FFFFFF;
                 padding: 0 25px;
@@ -95,8 +100,16 @@
             }
 
             @media (max-width: 768px){
-                .title {
-                    font-size: 20px;
+                .title > h1{
+                    font-size: 40px;
+                }
+
+                .content p{
+                    font-size:25px;
+                }
+
+                .btn-register{
+                    padding: 5px 55px;
                 }
             }
 
@@ -107,9 +120,9 @@
             @if (Route::has('login'))
                 <div class="top-right links">
                     @auth
-                        <a href="{{ url('/home') }}">Home</a>
+                        <a href="{{ url('/posts') }}">Inicio</a>
                     @else
-                        <a href="{{ route('login') }}">Login</a>
+                        <a href="{{ route('login') }}">Iniciar sesión</a>
 
                         @if (Route::has('register'))
                             <a href="{{ route('register') }}">Register</a>
@@ -123,9 +136,13 @@
                     <h1>Social Network</h1>
                 </div>
                 <p class="description">Ven y disfruta de nuestra increible app</p>
-                @if (Route::has('register'))
-                    <a class="btn-register m-b-md" href="{{ route('register') }}">Registrarse</a>
-                @endif
+                    @auth
+                        <a href="{{ url('/posts') }}" class="btn-register m-b-md">Iniciar</a>
+                    @else
+                        @if (Route::has('register'))
+                            <a class="btn-register m-b-md" href="{{ route('register') }}">Registrarse</a>
+                        @endif
+                    @endauth
                 <div class="links m-t-md">
                     <a href="https://github.com/AdrianAVA9/Social-Network">Ver codigo fuente GitHub</a>
                 </div>

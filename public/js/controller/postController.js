@@ -33,7 +33,7 @@ var PostController = function(postService){
         input = $(e.target);
         commentContainer = input.parent().parent().parent();
         
-        if(keyCode === 13){
+        if(keyCode == 13){
             if(input.val().length > 0){
                 var postId = input.attr('data-post-id');
                 postService.createComment($('input[name="_token"]').val(),postId,input.val(),createdComment,fail);

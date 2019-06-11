@@ -48,12 +48,10 @@
                 @endif
             </ul>
             <div class="form-inline create-post-comment-form border border-light app-tertiary-bg" autocomplete="off">
-                <div class="form-group">
-                    <div class="app-rounded-image ml-3 mx-2">
-                        <img src="{{ URL::to(Auth::user()->profiles->img_uri) }}" alt="profile picture">      
-                    </div>
+                <div class="app-rounded-image ml-3 mx-2">
+                    <img src="{{ URL::to(Auth::user()->profiles->img_uri) }}" alt="profile picture">      
                 </div>
-                <div class="form-group input-comment">
+                <div class="input-group input-comment">
                     <input type="text" class="form-control app-font-size-3 js-comment-value" id="comment-content" data-post-id="{{ $post->id }}" name="comment" placeholder="Añadir un comentario">
                 </div>
                 {{ csrf_field() }}

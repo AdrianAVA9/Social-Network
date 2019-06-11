@@ -26,7 +26,7 @@
             @if($is_mine and $album != null)
                 <ul class="nav float-right mr-5 mt-3 album-options">
                     <li class="nav-item mr-3">
-                        <a href="#" class="app-primary-color app-font-size-3" id="add-new-photo" data-toggle="modal" data-target="#add-new-photo"><span class="app-icon-size-3">+ </span>Agregar foto</a>
+                        <a href="#" class="app-primary-color app-font-size-3" id="add-new-photo" data-toggle="modal" data-target="#modal-add-new-photo"><span class="app-icon-size-3">+ </span>Agregar foto</a>
                     </li>
                     <li class="nav-item">
                         <a href="#" class="app-primary-color app-font-size-3" id="delete-album" data-album-id="{{ ($album !== null) ? $album->id : '-1'}}">- Eliminar album</a>                        
@@ -46,7 +46,7 @@
                         <div class="jumbotron any-picture-container text-center">
                             <h6 class="app-font-size-3"><strong>No hay fotos registradas!!!</strong></h6>
                             @if($is_mine)
-                                <button class="btn btn-small app-btn-primary rounded px-3 py-1 app-font-size-3" data-toggle="modal" data-target="#add-new-photo">Agregar</button>
+                                <button class="btn btn-small app-btn-primary rounded px-3 py-1 app-font-size-3" data-toggle="modal" data-target="#modal-add-new-photo">Agregar</button>
                             @endif
                         </div>
                     @endif
@@ -80,9 +80,8 @@
         <!-- End styles of add new album-->
         @endif
 
-        @if($is_mine and $album != null)
         <!-- Init styles of add new photo-->
-        <div class="modal fade" id="add-new-photo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal fade" id="modal-add-new-photo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
                     <div class="modal-body">
@@ -103,8 +102,8 @@
             </div>
         </div>
         <!-- End styles of add new photo-->
-        <script src="{{ URL::to('js/helper/fileHelperValidation.js') }}"></script>
-    @endif
+        <script src="{{ URL::to('js/helper/FileHelperValidation.js') }}"></script>
+
 
     <script src="{{ URL::to('js/bootbox.min.js') }}"></script>
     <script>
